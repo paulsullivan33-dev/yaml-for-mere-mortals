@@ -1,0 +1,138 @@
+YAML syntax — the shapes from "YAML for Mere Mortals"
+======================================================
+
+Every shape below appears in the guide, parsed
+for real against the sample files in this
+directory. Parsers differ (see the traps
+chapter); quoted text means the same thing
+everywhere.
+
+
+STRUCTURE
+---------
+A mapping — keys and values:
+
+    name: beacon
+    port: 8080
+
+Nesting is indentation alone. Siblings line up:
+
+    server:
+      host: 0.0.0.0
+      port: 8080
+
+A sequence — dash, space, item:
+
+    email:
+      - ops@example.com
+      - oncall@example.com
+
+A list of mappings — the first key rides the
+dash line, the rest align with it:
+
+    targets:
+      - name: shop-front
+        url: https://shop.example.com/
+      - name: blog
+        url: https://blog.example.com/
+
+A comment starts with # at a word boundary;
+glued to a word it is part of the value:
+
+    name: beacon        # this is a comment
+    path: /var/log/beacon#old
+
+
+SCALARS
+-------
+Plain (no quotes) is the default. Single quotes
+force a string and escape nothing but the quote
+itself, doubled:
+
+    'it''s a monitor'
+
+Double quotes allow escapes: "tab\there",
+"line\nbreak", "say \"hi\"".
+
+    integer: 8080        float: 2.5
+    grouped: 1_000       boolean: true
+    nothing: null        also nothing: ~
+    empty string: ''
+
+Quote anything that must stay text: 'NO',
+'on', '1.20', '1:20', '2026-10-17'.
+
+
+FLOW STYLE
+----------
+Any collection, one line:
+
+    ports: [8080, 8443]
+    flags: {dashboard: true, alerts: false}
+
+Same data as the block form; no comments inside.
+
+
+MULTI-LINE STRINGS
+------------------
+Literal keeps line breaks; folded joins them
+into spaces:
+
+    script: |
+      #!/bin/sh
+      systemctl restart beacon
+
+    message: >
+      A long sentence that wraps
+      becomes one line.
+
+Chomping controls the final newline: default
+(clip) keeps one, |- or >- keeps none, |+ or
+>+ keeps trailing blank lines too.
+
+
+ANCHORS, ALIASES, MERGES
+------------------------
+Define once with &, refer back with *, pour a
+mapping's keys into another with <<:
+
+    defaults: &defaults
+      retries: 2
+      log_level: info
+
+    production:
+      <<: *defaults
+      log_level: warn
+
+An alias can be a whole value:  alerts_to: *oncall
+Merging a list, <<: [*a, *b] — earlier aliases
+win shared keys; keys written out always win.
+
+
+DOCUMENTS AND TAGS
+------------------
+Several documents in one file, split by ---:
+
+    ---
+    kind: release
+    ---
+    kind: rollout
+
+Force a type with a tag:  port: !!str 8080
+
+
+CHECKING A FILE
+---------------
+What the parser saw (this directory's show.py):
+
+    python3 show.py traps.yml
+
+Convert to JSON and question it:
+
+    yq -o=json '.' service.yml | jq '.checks'
+
+Lint it (config in .yamllint, this directory):
+
+    yamllint -c .yamllint service.yml
+
+And in Python, always:  yaml.safe_load(file)

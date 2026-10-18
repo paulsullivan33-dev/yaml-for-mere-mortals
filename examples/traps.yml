@@ -1,0 +1,20 @@
+# Every line of this file is valid YAML.
+# Almost none of it means what it looks like.
+# (Parsed with PyYAML 6.0.3 — YAML 1.1 rules.)
+
+country: NO
+norway_also: no
+switch: on
+alarm: off
+answer: yes
+
+meeting_time: 1:20
+ratio: 12:30:15
+
+version: 1.20
+release: 2.0
+
+starts_on: 2026-10-17
+starts_at: 2026-10-17T09:30:00
+
+on: push

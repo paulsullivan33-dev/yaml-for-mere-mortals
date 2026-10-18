@@ -1,0 +1,5 @@
+# BROKEN ON PURPOSE: the value contains ": " and
+# is not quoted. The parser reads the second colon
+# as the start of a new mapping. See chapter 8.
+
+message: Warning: disk almost full

@@ -1,0 +1,27 @@
+# One of almost everything a YAML parser can hand
+# back. Parse it and look at the types, not the text.
+
+plain_string: beacon
+single_quoted: 'it''s a monitor'
+double_quoted: "tab\there"
+string_with_colon: "status: ok"
+string_that_looks_like_a_number: '8080'
+
+integer: 8080
+negative: -12
+underscored_number: 1_000
+leading_zero: 060
+float: 2.5
+float_with_exponent: 1.2e+3
+looks_scientific_but_is_text: 1.2e3
+
+truthy: true
+also_truthy: yes
+switched_on: on
+switched_off: off
+
+nothing_here: null
+also_nothing: ~
+empty_value:
+
+empty_string: ''

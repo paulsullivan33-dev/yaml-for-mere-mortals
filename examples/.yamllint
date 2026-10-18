@@ -1,0 +1,15 @@
+# The lint rules this guide uses (chapter 10).
+# Starts from yamllint's default rules, then:
+# - lines up to 100 characters are fine, and only
+#   a warning past that
+# - these files are fragments of larger configs,
+#   so the "---" document-start marker is not
+#   required
+
+extends: default
+
+rules:
+  line-length:
+    max: 100
+    level: warning
+  document-start: disable

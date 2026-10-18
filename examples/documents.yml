@@ -1,0 +1,18 @@
+# Three documents in one file, split by --- lines:
+# a release, its rollout switches, and a sign-off.
+---
+kind: release
+version: 2.4.1
+date: 2026-10-17
+notes: Bug fixes and a faster checker.
+---
+kind: rollout
+version: 2.4.1
+channels:
+  - stable
+  - beta
+---
+kind: signoff
+version: 2.4.1
+approved_by: m. okafor
+approved: true

@@ -1,0 +1,6 @@
+# BROKEN ON PURPOSE: "port" is indented one space
+# less than its sibling "host". See chapter 11.
+
+server:
+  host: beacon.internal
+ port: 8080

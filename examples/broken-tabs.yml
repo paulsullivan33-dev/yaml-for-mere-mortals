@@ -1,0 +1,6 @@
+# BROKEN ON PURPOSE: the line under "service:"
+# is indented with a TAB character, not spaces.
+# YAML forbids tabs for indentation. Chapter 8.
+
+service:
+	name: beacon

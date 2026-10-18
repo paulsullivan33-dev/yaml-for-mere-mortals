@@ -1,0 +1,8 @@
+# Valid to a parser, wrong to a human: the key
+# "retries" appears twice, and a parser silently
+# keeps the second value. See chapters 8 and 10.
+
+service:
+  name: beacon
+  retries: 2
+  retries: 5

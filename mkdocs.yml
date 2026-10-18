@@ -1,0 +1,24 @@
+site_name: YAML for Mere Mortals
+site_description: Plain-language YAML — the structure, the scalars, the anchors, and the famous traps, with every parse and every error produced by a real parser against the sample files.
+site_url: https://paulsullivan33-dev.github.io/yaml-for-mere-mortals/
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What YAML Is: what-yaml-is.md
+  - The Shape of It: the-shape-of-it.md
+  - Scalars: scalars.md
+  - Maps and Lists in Depth: maps-and-lists.md
+  - Multi-Line Strings: multiline-strings.md
+  - Anchors, Aliases and Merges: anchors-and-aliases.md
+  - Documents and Types: documents-and-types.md
+  - The Famous Traps: the-famous-traps.md
+  - A Worked Example: worked-example.md
+  - Writing and Checking YAML: writing-and-checking.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

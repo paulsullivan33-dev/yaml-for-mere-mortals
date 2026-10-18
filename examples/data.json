@@ -1,0 +1,1 @@
+{"features":["dashboard","alerts"],"port":8080,"service":"beacon","tls":{"enabled":true}}

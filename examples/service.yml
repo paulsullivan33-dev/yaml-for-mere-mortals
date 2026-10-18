@@ -1,0 +1,48 @@
+# Beacon uptime monitor — main configuration.
+# Loaded once at startup. Anything not set here
+# falls back to the defaults in the manual.
+
+service:
+  name: beacon
+  version: 2.4.1
+  environment: production
+
+server:
+  host: 0.0.0.0
+  port: 8080
+  workers: 4
+  tls:
+    enabled: true
+    cert_file: /etc/beacon/cert.pem
+    key_file: /etc/beacon/key.pem
+
+checks:
+  interval_seconds: 60
+  timeout_seconds: 10
+  retries: 2
+  targets:
+    - name: shop-front
+      url: https://shop.example.com/
+      expect_status: 200
+    - name: api-health
+      url: https://api.example.com/health
+      expect_status: 200
+    - name: blog
+      url: https://blog.example.com/
+      expect_status: 301
+
+alerts:
+  email:
+    - ops@example.com
+    - oncall@example.com
+  webhook: https://hooks.example.com/beacon
+  repeat_after_minutes: 30
+
+features:
+  dashboard: true
+  public_status_page: false
+  beta_checks: off
+
+logging:
+  level: info
+  file: /var/log/beacon/beacon.log

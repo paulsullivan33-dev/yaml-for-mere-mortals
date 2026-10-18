@@ -1,0 +1,40 @@
+# Three environments that differ in a key or two,
+# and two probes that differ in one path. Anchors
+# define each shared shape once; merges reuse it.
+
+defaults: &defaults
+  retries: 2
+  timeout_seconds: 10
+  notify: true
+  log_level: info
+
+development:
+  <<: *defaults
+  log_level: debug
+
+staging:
+  <<: *defaults
+  timeout_seconds: 20
+
+production:
+  <<: *defaults
+  retries: 5
+  log_level: warn
+
+probe: &probe
+  method: GET
+  expect_status: 200
+
+health_check:
+  <<: *probe
+  path: /health
+
+readiness_check:
+  <<: *probe
+  path: /ready
+
+oncall: &oncall
+  - ops@example.com
+  - oncall@example.com
+
+alerts_to: *oncall

@@ -1,0 +1,27 @@
+# How multi-line text survives in a config file.
+
+literal: |
+  first line
+  second line
+
+literal_stripped: |-
+  first line
+  second line
+
+folded: >
+  first line
+  second line
+
+folded_stripped: >-
+  first line
+  second line
+
+keep_the_blanks: |+
+  ends with two blank lines
+
+
+runbook: |
+  #!/bin/sh
+  # Restart the checker and tail the log.
+  systemctl restart beacon
+  tail -f /var/log/beacon/beacon.log
