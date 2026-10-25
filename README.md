@@ -97,3 +97,19 @@ you have the everyday skill. Save the traps
 chapter for the day a config value isn't what
 you typed — a day that comes for everyone who
 edits YAML long enough.
+
+---
+
+## Part of the series
+
+This guide is one of the [For Mere Mortals](https://paulsullivan33-dev.github.io/mere-mortals/) guides: plain-language guides to the tools programmers and makers use.
+
+Related guides:
+
+- [yq for Mere Mortals](https://paulsullivan33-dev.github.io/yq-for-mere-mortals/)
+- [jq for Mere Mortals](https://paulsullivan33-dev.github.io/jq-for-mere-mortals/)
+- [Docker Compose for Mere Mortals](https://paulsullivan33-dev.github.io/docker-compose-for-mere-mortals/)
+
+## License
+
+The writing in this guide is licensed under [CC BY 4.0](https://github.com/paulsullivan33-dev/yaml-for-mere-mortals/blob/main/LICENSE). Code examples and lab scripts are licensed under the [MIT License](https://github.com/paulsullivan33-dev/yaml-for-mere-mortals/blob/main/LICENSE-CODE).
